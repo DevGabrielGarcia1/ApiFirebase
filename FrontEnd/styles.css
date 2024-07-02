@@ -1,0 +1,131 @@
+
+* {
+    box-sizing: border-box;
+}
+  
+.container {
+    text-align: center;
+}
+.center {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+.line {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+.container {
+    text-align: center;
+}
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(202, 202, 202);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 25%;
+    min-width: 300px;
+}
+input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-right: 5px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 300px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.btnReturn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 5px;
+    font-size: 18px;
+    color: white;
+    background-color: #555555;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 300px;
+}
+.btnReturn:hover {
+    background-color: #444444;;
+}
+.btnBack {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 5px;
+    font-size: 18px;
+    color: white;
+    background-color: #ee0808;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 300px;
+}
+.btnBack:hover {
+    background-color: #880d0d;
+}
+
+.data-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: left;
+    width: 25%;
+}
+.data-item {
+    margin-bottom: 10px;
+}
+.label {
+    font-weight: bold;
+}
+.containerResult {
+    text-align: center;
+    margin-top: 30px;
+}
+
+ul {
+    list-style-type: none; /* Remove os marcadores padrão */
+    padding: 0; /* Remove o padding padrão */
+    max-width: 600px;
+    margin: 20px auto; /* Centraliza a lista na página */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  ul li:last-child {
+    border-bottom: none; /* Remove a borda inferior do último item */
+  }
+  
+  ul li:nth-child(odd) {
+    background-color: #f9f9f9; /* Adiciona uma cor de fundo aos itens ímpares */
+  }

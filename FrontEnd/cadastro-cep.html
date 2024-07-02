@@ -1,0 +1,71 @@
+<!-- cadastro-cep.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar CEP Firebase</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+
+      function saveData() {
+        let payload = {
+          cep: document.getElementById("cep").value,
+          logradouro: document.getElementById("logradouro").value,
+          complemento: document.getElementById("complemento").value,
+          bairro: document.getElementById("bairro").value,
+          localidade: document.getElementById("localidade").value,
+          uf: document.getElementById("uf").value,
+        };
+ 
+        let data = JSON.stringify(payload);
+
+        fetch("http://localhost:3000/busca_cep", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: data,
+        }).then(function (res) {
+          if (res.status == 201) {
+            alert("Salvo com sucesso!");
+            location.href = "index.html";
+          }
+          alert("Ocorreu um erro!\nCódigo: "+res.status);
+        });
+      }
+
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="center">
+        <h1>Cadastrar CEP Firebase</h1>
+        <form onsubmit="event.preventDefault(); saveData();">
+          <input id="cep" type="text" placeholder="CEP" required />
+          <input
+            id="logradouro"
+            type="text"
+            placeholder="Logradouro"
+            required
+          />
+          <input id="complemento" type="text" placeholder="Complemento" />
+          <input id="bairro" type="text" placeholder="Bairro" required />
+          <input
+            id="localidade"
+            type="text"
+            placeholder="Localidade"
+            required
+          />
+          <input id="uf" type="text" placeholder="UF" required />
+          <div class="line">
+            <button class="btn" type="submit">Cadastrar</button>
+            <button class="btnBack" onclick="location.href='index.html'">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!-- buscar-cep.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscar CEP Firebase</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+
+      async function getData() {
+        let cep = document.getElementById("cep").value;
+
+        let result = await fetch("http://localhost:3000/busca_cep/" + cep, {
+          method: "GET",
+        });
+
+        if (await result.ok) {
+          setData(await result.json());
+          return;
+        }
+        alert("Ocorreu um erro!\nCódigo: " + result.status);
+        document.getElementById("resultado").setAttribute("style", "display: none;");
+      }
+
+      function setData(json) {
+        let logradouro = json.logradouro;
+        let complemento = json.complemento;
+        let bairro = json.bairro;
+        let localidade = json.localidade;
+        let uf = json.uf;
+
+        document.getElementById("resultado").setAttribute("style", "");
+        document.getElementById("logradouro").innerHTML = logradouro;
+        document.getElementById("complemento").innerHTML = complemento;
+        document.getElementById("bairro").innerHTML = bairro;
+        document.getElementById("localidade").innerHTML = localidade;
+        document.getElementById("uf").innerHTML = uf;
+      }
+      
+    </script>
+  </head>
+  <body>
+    <div class="center">
+      <div class="container">
+        <h1>Buscar CEP</h1>
+        <form onsubmit="event.preventDefault(); getData();">
+          <input id="cep" type="text" placeholder="Digite o CEP" required />
+          <div class="line">
+            <button class="btn" type="submit">Buscar</button>
+            <button class="btnReturn" onclick="location.href='index.html'">
+              Voltar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="resultado" class="containerResult center" style="display: none;">
+      <div class="data-container">
+        <div class="data-item">
+          <h3>Resultado da busca</h3>
+        </div>
+        <hr style="height: 1px; color: rgba(223, 223, 223, 0.322)" />
+        <div class="data-item">
+          <span class="label">Logradouro:</span> <span id="logradouro"></span>
+        </div>
+        <div class="data-item">
+          <span class="label">Complemento:</span> <span id="complemento"></span>
+        </div>
+        <div class="data-item">
+          <span class="label">Bairro:</span> <span id="bairro"></span>
+        </div>
+        <div class="data-item">
+          <span class="label">Localidade:</span> <span id="localidade"></span>
+        </div>
+        <div class="data-item">
+          <span class="label">UF:</span> <span id="uf"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
